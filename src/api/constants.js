@@ -78,14 +78,14 @@
 //   }
 // };
 
-// export const fetchData = async (url, request) => new Promise((resolve, reject) => fetch(`${baseUrl}${url}`, request)
-//   .then(response => {
-//     if (response.status === 200 || response.status === 201) {
-//       resolve(response.json());
-//     } else {
-//       reject(response.json());
-//     }
-//   })
-//   .catch(error => {
-//     reject(error);
-//   }));
+export const fetchData = async (url, request) => new Promise((resolve, reject) => fetch(`${url}`, request)
+  .then(response => {
+    if (response.status === 200 || response.status === 201) {
+      resolve(response.json());
+    } else {
+      reject(response.json());
+    }
+  })
+  .catch(error => {
+    reject(error);
+  }));

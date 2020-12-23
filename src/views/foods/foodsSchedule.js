@@ -1,7 +1,11 @@
 import React from 'react';
 import dayjs from "dayjs";
+import FoodElement from './foodElement';
+import { Link } from 'react-router-dom';
 
 const today = dayjs();
+
+const foods = [{ id_food: 1, name: 'Quesadilla' }];
 
 const FoodsSchedule = () => {
 
@@ -37,6 +41,10 @@ const FoodsSchedule = () => {
           </div>
         </div>
       </div>
+      <div className="card">
+        {foods.map(food => (<FoodElement key={food.id_food} food={food} />))}
+      </div>
+      <Link to={{ pathname: "/schedule/food", date: day }} className="btn btn-primary">Schedule food</Link>
     </div>
   );
 };
